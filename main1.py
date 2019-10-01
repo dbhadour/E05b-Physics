@@ -14,7 +14,7 @@ MARGIN = 10
 NUM_BALLS = 20
 SCREEN_TITLE = "Gravity Exercise"
 
-GRAVITY = 0 #update this value
+GRAVITY = -10#update this value
 
 
 class Ball():
@@ -30,6 +30,7 @@ class Ball():
         arcade.draw_circle_filled(self.x, self.y, self.radius, self.color)
     
     def update(self):
+        print("update")
         self.x += self.dx
         self.y += self.dy
         if self.x <= MARGIN:
@@ -63,8 +64,9 @@ class Window(arcade.Window):
             self.ball_list.append(self.ball)
 
     def update(self, delta_time):
+        print(self.ball_list)
         for b in self.ball_list:
-            # apply gravity here
+            b.accelerate(0,GRAVITY)# apply gravity here
             b.update()
 
     def on_draw(self):

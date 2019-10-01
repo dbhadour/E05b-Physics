@@ -51,12 +51,9 @@ class Window(arcade.Window):
 
             collisions = a.collides_with_list(self.animal_list)
             for c in collisions:
-                # implement conservation of momentum here
-                # pass just does nothing. After you add your code, ou can delete what is now on line 56
-                pass
-
-
-            if a.center_x <= MARGIN:
+            
+             
+             if a.center_x <= MARGIN:
                 a.center_x = MARGIN
                 a.dx = abs(a.dx)
             if a.center_x >= SCREEN_WIDTH - MARGIN:
@@ -71,8 +68,12 @@ class Window(arcade.Window):
             if a.center_y >= SCREEN_HEIGHT - MARGIN:
                 a.center_y = SCREEN_HEIGHT - MARGIN
                 a.dy = abs(a.dy)*-1
+    
+                # pass just does nothing. After you add your code, ou can delete what is now on line 56
+                pass
 
 
+            
     def on_draw(self):
         arcade.start_render()
         self.animal_list.draw()
